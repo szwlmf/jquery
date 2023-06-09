@@ -1,0 +1,58 @@
+jquery 是一个JavaScript框架，简化了JavaScript开发。
+1、jquery获取doment对象的几种方法：
+  1） $（"#id"）根据id获取元素
+  2） $（".class"）根据类名获取元素
+  3） $("元素") 根据标签获取元素
+  4） $（"#id div"） 获取指定元素下面所有的div
+  5)  $("#id > div") 获取指定元素下面所有子div
+  6） $(#id + div) 获取指定元素相邻的div 有的话只有一个，没有的话就没有
+  7) $("#id ~ div") 获取指定元素的所有兄弟div （同级div）
+2、表单选择器
+  $(":input")      $(":text")       $(":radio")       $(":checkbox")       $(":submit")       $(":reset")     $(":button")       $(":file")   $(":image")    $(":password")
+3、jquery获取元素属性的方法
+  1）$("#id").attr("属性名称") 如果属性名不存在返回undefined。如果是固有属性，并且是布尔型，直接返回属性值。如果是自己设置的属性，直接返回属性值。
+  2）$("#id").prop("属性名称") 如果属性名不存在返回null。如果是固有属性，并且是布尔型，返回true或者false。如果是自己设置的属性，直接返回null。
+  3）、$("#id").removeAttr("属性名称") 删除元素属性
+4、jquery操作元素样式
+   1）、$("#id").addClass()
+   2)、$("#id").css("font-size",14)        $("#id").css({"font-size":14,color:red})
+   3)、$("#id").attr("color","red")
+   4)、removeClass()   移除样式
+5、操作元素内容
+   1）、text()  纯文本，括号里面没值是取当前元素里面的内容，有值，则是设置当前元素的值为括号里面的内容
+   2)、html()   识别元素标签，括号里面没值是取当前元素里面的内容，有值，则是设置当前元素的值为括号里面的内容
+   3）、val()  表单元素取值
+6、创建元素，添加元素
+   1）、var div = "<div></div>" 此时div为纯文本， var  b = $(div)  此时b为jquery对象。 
+   2）、添加元素的几种方法：prepend,在指定元素内部的最前面添加；prependTo,将指定元素添加到选中元素的开头，选中元素就是to后面的元素。
+   append，在指定元素的最后追加；appendTo,和prepend相反；before，在指定元素的前面添加；after，在指定元素的后面追加；
+7、删除元素
+   1）remove（） 连同标签元素一块删除
+   2）、empty（） 仅将标签内容清空
+8、遍历元素
+  $（）.each(function(index,element){
+      index,当前元素的下标
+      element，遍历的当前元素
+  })
+9、ready加载事件（预加载，在页面加载完成后执行）
+  相当于document.load。
+  $(function(){}) 或者 $(document).ready(function(){})
+10、jquery绑定事件
+  $().bind("click",function(){})
+  $().click(function(){}).change(function(){})
+11、ajax异步请求
+  $.ajax({
+    type:"get",
+    url:"",
+    dataType:“json”
+    data:{"username":"name"}, //请求参数
+    success:function(data){
+      请求成功后的回调函数，data为后台返回数据
+    }
+  })
+  
+ $.get(url,{key:value}，function（data）{})
+ $.post(url,参数，function（data）{})
+ $.getJson(url,参数，function（data）{})
+  
+   
